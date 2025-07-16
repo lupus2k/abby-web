@@ -9,7 +9,6 @@ export function Header() {
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2 font-semibold">
             <Logo size="lg" />
-            <span className="text-lg font-bold">Abby Assistant</span>
           </Link>
         </div>
       </div>
