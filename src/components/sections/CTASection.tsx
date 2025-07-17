@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 
 export function CTASection() {
   return (
@@ -12,8 +12,8 @@ export function CTASection() {
             Abby is a smart assistant that helps you manage events and reminders. It keeps track of your schedule, sends timely alerts, and makes sure you stay on top of what matters.
           </p>
           <div className="flex flex-col gap-2 min-[400px]:flex-row pt-4">
-            <Button asChild className="bg-[oklch(0.141_0.005_285.823)] hover:bg-[oklch(0.141_0.005_285.823)]/90">
-              <a href="https://t.me/Abby_Assistant_Bot" target="_blank">Start now</a>
+            <Button className="bg-[oklch(0.141_0.005_285.823)] hover:bg-[oklch(0.141_0.005_285.823)]/90">
+              <a href="https://t.me/Abby_Assistant_Bot" className="text-white" target="_blank">Start now</a>
             </Button>
           </div>
         </div>
