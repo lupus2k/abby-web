@@ -1,0 +1,38 @@
+import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_DFwf-Fe0.mjs';
+import 'kleur/colors';
+import { $ as $$Layout, a as $$Header, b as $$Footer } from '../chunks/Footer_CrVZdEeJ.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Privacy = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Privacy Policy - Abby Assistant" }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Header", $$Header, {})} ${maybeRenderHead()}<main class="flex-grow"> <div class="container mx-auto px-4 py-16"> <div class="max-w-4xl mx-auto"> <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-center">
+Privacy Policy
+</h1> <p class="text-lg text-gray-600 mb-8">
+This Privacy Policy explains how <strong>Abby</strong>, your smart assistant for managing events and reminders, collects, uses, and protects your information.
+</p> <hr class="border-gray-300 mb-8"> <section class="mb-8"> <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Information We Collect</h2> <p class="text-lg text-gray-600 mb-4">
+Abby may collect the following types of information:
+</p> <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 ml-4"> <li><strong>User-provided data:</strong> Events, reminders, time zone, language preferences, or other information you submit to the assistant.</li> <li><strong>Device data (optional):</strong> Platform or app metadata for performance monitoring and improvement.</li> </ul> </section> <hr class="border-gray-300 mb-8"> <section class="mb-8"> <h2 class="text-2xl font-bold text-gray-900 mb-4">2. How We Use Your Information</h2> <p class="text-lg text-gray-600 mb-4">
+We use your information to:
+</p> <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 ml-4"> <li>Manage and deliver reminders and event notifications.</li> <li>Personalize the assistant's responses based on your preferences.</li> <li>Improve the functionality and performance of the service.</li> </ul> </section> <hr class="border-gray-300 mb-8"> <section class="mb-8"> <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Data Sharing</h2> <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 ml-4"> <li>We <strong>do not sell</strong> your information.</li> <li>Your data is <strong>not shared</strong> with third parties unless required by law or explicitly authorized by you.</li> </ul> </section> <hr class="border-gray-300 mb-8"> <section class="mb-8"> <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Data Storage and Security</h2> <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 ml-4"> <li>Your data is stored securely and only retained for as long as necessary to provide the service.</li> <li>We implement reasonable security measures to protect your information from unauthorized access or disclosure.</li> </ul> </section> <hr class="border-gray-300 mb-8"> <section class="mb-8"> <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Your Rights</h2> <p class="text-lg text-gray-600 mb-4">
+You may request to:
+</p> <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 ml-4"> <li>Access the data stored about you.</li> <li>Correct or update inaccurate data.</li> <li>Delete your data from our system.</li> </ul> <p class="text-lg text-gray-600 mt-4">
+Please contact us at <strong><a href="#" class="text-blue-600 hover:text-blue-800">abby-privacy@weareda.com</a></strong> for any such requests.
+</p> </section> <hr class="border-gray-300 mb-8"> <section class="mb-8"> <h2 class="text-2xl font-bold text-gray-900 mb-4">6. Changes to This Policy</h2> <p class="text-lg text-gray-600">
+We may update this Privacy Policy from time to time. You will be notified of significant changes, and continued use of the service implies acceptance of the updated policy.
+</p> </section> <hr class="border-gray-300 mb-8"> <p class="text-lg text-gray-600">
+If you have any questions about this Privacy Policy, please contact us at <strong><a href="#" class="text-blue-600 hover:text-blue-800">abby-privacy@weareda.com</a></strong>.
+</p> </div> </div> </main> ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
+}, "/home/lupus/work/abby-web/src/pages/privacy.astro", void 0);
+
+const $$file = "/home/lupus/work/abby-web/src/pages/privacy.astro";
+const $$url = "/privacy";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Privacy,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
