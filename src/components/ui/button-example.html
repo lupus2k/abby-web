@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Component Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS variables for the button variants */
+        :root {
+            --primary: 222.2 84% 4.9%;
+            --primary-foreground: 210 40% 98%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --secondary: 210 40% 96%;
+            --secondary-foreground: 222.2 84% 4.9%;
+            --accent: 210 40% 96%;
+            --accent-foreground: 222.2 84% 4.9%;
+            --background: 0 0% 100%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 222.2 84% 4.9%;
+        }
+        
+        .bg-primary { background-color: hsl(var(--primary)); }
+        .text-primary-foreground { color: hsl(var(--primary-foreground)); }
+        .bg-destructive { background-color: hsl(var(--destructive)); }
+        .text-destructive-foreground { color: hsl(var(--destructive-foreground)); }
+        .bg-secondary { background-color: hsl(var(--secondary)); }
+        .text-secondary-foreground { color: hsl(var(--secondary-foreground)); }
+        .bg-background { background-color: hsl(var(--background)); }
+        .border-input { border-color: hsl(var(--input)); }
+        .hover\\:bg-accent:hover { background-color: hsl(var(--accent)); }
+        .hover\\:text-accent-foreground:hover { color: hsl(var(--accent-foreground)); }
+        .text-primary { color: hsl(var(--primary)); }
+        .focus-visible\\:ring-ring:focus-visible { --tw-ring-color: hsl(var(--ring)); }
+    </style>
+</head>
+<body class="p-8 space-y-4">
+    <h1 class="text-2xl font-bold mb-6">Button Component Examples</h1>
+    
+    <div class="space-y-4">
+        <div>
+            <h2 class="text-lg font-semibold mb-2">Variants</h2>
+            <div class="flex gap-2 flex-wrap">
+                <div id="default-button"></div>
+                <div id="destructive-button"></div>
+                <div id="outline-button"></div>
+                <div id="secondary-button"></div>
+                <div id="ghost-button"></div>
+                <div id="link-button"></div>
+            </div>
+        </div>
+        
+        <div>
+            <h2 class="text-lg font-semibold mb-2">Sizes</h2>
+            <div class="flex gap-2 items-center flex-wrap">
+                <div id="sm-button"></div>
+                <div id="default-size-button"></div>
+                <div id="lg-button"></div>
+                <div id="icon-button"></div>
+            </div>
+        </div>
+        
+        <div>
+            <h2 class="text-lg font-semibold mb-2">Interactive Examples</h2>
+            <div class="flex gap-2 flex-wrap">
+                <div id="click-button"></div>
+                <div id="link-example"></div>
+                <div id="disabled-button"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the button utilities (in a real project, you'd import from the actual file)
+        // For this example, we'll inline the necessary functions
+        
+        function cn(...classes) {
+            return classes.filter(Boolean).join(' ');
+        }
+        
+        const buttonVariants = {
+            variant: {
+                default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+                destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+                outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+                secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+                ghost: "hover:bg-accent hover:text-accent-foreground",
+                link: "text-primary underline-offset-4 hover:underline",
+            },
+            size: {
+                default: "h-9 px-4 py-2",
+                sm: "h-8 rounded-md px-3 text-xs",
+                lg: "h-10 rounded-md px-8",
+                icon: "h-9 w-9",
+            }
+        };
+        
+        const baseClasses = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50";
+        
+        function createButton(content, options = {}) {
+            const {
+                variant = "default",
+                size = "default",
+                className,
+                type = "button",
+                disabled = false,
+                onclick,
+                href,
+                target,
+                rel,
+                id,
+                ...otherProps
+            } = options;
+            
+            const variantClasses = buttonVariants.variant[variant] || buttonVariants.variant.default;
+            const sizeClasses = buttonVariants.size[size] || buttonVariants.size.default;
+            const buttonClasses = cn(baseClasses, variantClasses, sizeClasses, className);
+            
+            let element;
+            
+            if (href) {
+                element = document.createElement('a');
+                element.href = href;
+                if (target) element.target = target;
+                if (rel) element.rel = rel;
+            } else {
+                element = document.createElement('button');
+                element.type = type;
+                if (disabled) element.disabled = disabled;
+            }
+            
+            element.className = buttonClasses;
+            element.innerHTML = content;
+            if (id) element.id = id;
+            
+            if (onclick && typeof onclick === 'function') {
+                element.addEventListener('click', onclick);
+            }
+            
+            return element;
+        }
+        
+        // Create example buttons
+        document.getElementById('default-button').appendChild(
+            createButton('Default', { variant: 'default' })
+        );
+        
+        document.getElementById('destructive-button').appendChild(
+            createButton('Destructive', { variant: 'destructive' })
+        );
+        
+        document.getElementById('outline-button').appendChild(
+            createButton('Outline', { variant: 'outline' })
+        );
+        
+        document.getElementById('secondary-button').appendChild(
+            createButton('Secondary', { variant: 'secondary' })
+        );
+        
+        document.getElementById('ghost-button').appendChild(
+            createButton('Ghost', { variant: 'ghost' })
+        );
+        
+        document.getElementById('link-button').appendChild(
+            createButton('Link', { variant: 'link' })
+        );
+        
+        // Size examples
+        document.getElementById('sm-button').appendChild(
+            createButton('Small', { size: 'sm' })
+        );
+        
+        document.getElementById('default-size-button').appendChild(
+            createButton('Default', { size: 'default' })
+        );
+        
+        document.getElementById('lg-button').appendChild(
+            createButton('Large', { size: 'lg' })
+        );
+        
+        document.getElementById('icon-button').appendChild(
+            createButton('🚀', { size: 'icon' })
+        );
+        
+        // Interactive examples
+        document.getElementById('click-button').appendChild(
+            createButton('Click Me!', { 
+                onclick: () => alert('Button clicked!') 
+            })
+        );
+        
+        document.getElementById('link-example').appendChild(
+            createButton('Visit Example', { 
+                href: 'https://example.com',
+                target: '_blank',
+                rel: 'noopener noreferrer'
+            })
+        );
+        
+        document.getElementById('disabled-button').appendChild(
+            createButton('Disabled', { disabled: true })
+        );
+    </script>
+</body>
+</html>
